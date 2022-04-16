@@ -8,12 +8,14 @@
             </script><title>Hello world!</title>
             </head> 
             <body>
+                <H1><center>Doughnut chart to show the market share of the top ten highest Price Crypto Currencies<center></H1>
                 <canvas id = "piechart" width="900" height="400"></canvas>
-
+                
+                    <canvas id = "linechart" width="900" height="400"></canvas>
                 <script>
                     var ctx = document.getElementById("piechart").getContext("2d");
                     var barchart = new Chart(ctx,{
-                        type: "pie",
+                        type: "doughnut",
                         data: {
                             labels: {{labels|safe}},
                             datasets:[
@@ -22,9 +24,20 @@
                                     data: {{values|safe}},
                                     fill: true,
                                     backgroundColor: ['rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'],
-      hoverOffset: 4
+                                                      'rgb(54, 162, 235)',
+                                                    'rgb(83, 83, 83)',
+                                                    'rgb(255, 6, 132)',
+                                                      'rgb(0, 0, 90)',
+                                                    'rgb(255, 100, 86)',
+                                                    'rgb(135, 46, 179)',
+                                                      'rgb(31, 106, 70)',
+                                                    'rgb(255, 205, 0)',
+                                                    'rgb(250, 0, 10)',
+                                                      'rgb(78, 242, 219)',],
+      hoverOffset: 4,
+      borderAlign: 'center',
+      borderRadius: 2,
+      weight: 5
                                 }
                             ]
                         },

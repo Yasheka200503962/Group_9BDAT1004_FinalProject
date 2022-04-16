@@ -24,13 +24,21 @@ def get_all_data():
 @app.route("/piechart")
 def piechart():
     data = get_all_data()
+    data1 = get_all_data()
+    temp=[]
     labels=[]
     values =[]
+    for x in data1:
+        g=x["data"]
+        for y in g:
+            temp.append(y["quote"]["USD"]["price"])
+    temp.sort()
     for j in data:
         d=j["data"]
         for i in d:
-            labels.append(i["name"])
-            values.append(i["quote"]["USD"]["market_cap_dominance"])
+            if temp.index(i["quote"]["USD"]["price"])<=10:
+                labels.append(i["name"])
+                values.append(i["quote"]["USD"]["price"])
     return render_template('piechart.html',labels = labels,values=values)
 
 @app.route("/BarChart")
@@ -43,6 +51,8 @@ def PriceBarChart():
         for i in d:
             labels.append(i["name"])
             values.append(i["quote"]["USD"]["price"])
+    
+        
     return render_template("PriceBarChart.html",labels=labels, values=values)
 
 @app.route("/LineChart")
