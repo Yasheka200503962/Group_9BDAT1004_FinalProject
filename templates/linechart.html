@@ -5,9 +5,10 @@
            <meta charset="utf-8" /><!-- Chart js -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js">
 
-            </script><title>Hello world!</title>
+            </script><title>Line Chart</title>
             </head> 
             <body>
+                <H1><center>Line chart to show the percentage change in Price of BitCoin with time<center></H1>
                 <canvas id = "linechart" width="900" height="400"></canvas>
 
                 <script>
@@ -18,18 +19,22 @@
                             labels: {{labels|safe}},
                             datasets:[
                                 {
-                                    label: "Data points",
+                                    label: "Percentage change in rate of crypto",
                                     data: {{values|safe}},
-                                    fill: true,
-                                    backgroundColor: ['rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'],
+                                    fill: false,
+                                    backgroundColor: ['rgba(255, 255, 255)',
+      'rgba(255, 255, 255)',
+      'rgba(255, 255, 255)'],
+
+      borderCapStyle: "butt",
+      borderColor: 'rgba(0,200,255)',
+      indexAxis: 'x',
       hoverOffset: 4
                                 }
                             ]
                         },
                         options: {
-                            responsive: false
+                            responsive: true
                         }
                     })
                 </script>

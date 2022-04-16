@@ -1,4 +1,3 @@
-from yaml import FlowMappingStartToken
 from flask import Flask
 from pymongo import MongoClient
 import pymongo
@@ -8,11 +7,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Hello Everyone"
+    return render_template('index.html')
 
 
 def db_connection():
-    con = "mongodb+srv://yasheka1996v:Bharath96@cluster0.fnqkv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+#    con = "mongodb+srv://yasheka1996v:Bharath96@cluster0.fnqkv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    con ="mongodb+srv://Rk:project@project.qi1vn.mongodb.net/PythonProject?ssl=true&ssl_cert_reqs=CERT_NONE"
     client = MongoClient(con)
     return client["PythonProject"]["Crypto"]
     
@@ -30,7 +30,7 @@ def piechart():
         d=j["data"]
         for i in d:
             labels.append(i["name"])
-            values.append(i["total_supply"])
+            values.append(i["quote"]["USD"]["market_cap_dominance"])
     return render_template('piechart.html',labels = labels,values=values)
 
 @app.route("/BarChart")

@@ -8,6 +8,7 @@
             </script><title>Hello world!</title>
             </head> 
             <body>
+                <H1><center>Bar graph to show the compare the Prices of Crypto Currencies<center></H1>
                 <canvas id = "barchart" width="900" height="400"></canvas>
 
                 <script>
@@ -18,16 +19,20 @@
                             labels: {{labels|safe}},
                             datasets:[
                                 {
-                                    label: "Data points",
+                                    label: "Price of the crypto currency",
                                     data: {{values|safe}},
                                     fill: true,
-                                    borderColor: "rgb(0,0,0)",
+                                    backgroundColor: "rgb(200,0,255)",
+                                    barThickness: 50,
+                                    fill: true,
+                                    borderColor:"rgb(0,0,0)",
+                                    borderWidth: 3,
                                     lineTension: 0.1 
                                 }
                             ]
                         },
                         options: {
-                            responsive: false
+                            responsive: true
                         }
                     })
                 </script>
