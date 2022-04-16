@@ -10,3 +10,17 @@ Werkzeug==2.1.1
 PyYAML==6.0
 pymongo==4.1.0
 zipp==3.8.0
+dnspython==2.2.1
+entrypoints==0.3
+Flask-Compress==1.11
+Flask-PyMongo==2.3.0
+fonttools==4.25.0
+inflection==0.5.1
+ipython-sql==0.4.0
+jmespath==1.0.0
+pep8==1.7.1
+Pillow==8.4.0
+pkginfo==1.7.1
+plotly==5.7.0
+pycurl==7.44.1
+jedi==0.17.2
