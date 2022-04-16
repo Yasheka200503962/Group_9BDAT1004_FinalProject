@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <!-- Required meta tags -->
+           <meta charset="utf-8" /><!-- Chart js -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js">
+
+            </script><title>Hello world!</title>
+            </head> 
+            <body>
+                <canvas id = "piechart" width="900" height="400"></canvas>
+
+                <script>
+                    var ctx = document.getElementById("piechart").getContext("2d");
+                    var barchart = new Chart(ctx,{
+                        type: "pie",
+                        data: {
+                            labels: {{labels|safe}},
+                            datasets:[
+                                {
+                                    label: "Data points",
+                                    data: {{values|safe}},
+                                    fill: true,
+                                    backgroundColor: ['rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'],
+      hoverOffset: 4
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: false
+                        }
+                    })
+                </script>
+
+                </canvas> 
+            </body>
+        </html>
